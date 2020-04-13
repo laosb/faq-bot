@@ -61,6 +61,9 @@ const verifyHduStaff: (
     'GET'
   )
   if (!res) return { verified: false }
+  console.log(
+    `staffId='${staffId}', expected name='${res.data.STAFFNAME}', submitted '${name}'`
+  )
   if (res.data && res.data.STAFFNAME === name) {
     let prefix = ''
     const dep = departmentShort[res.data.UNITCODE] || ''
@@ -98,6 +101,7 @@ export default async (payload: CQHTTPPostPayload) => {
   const extracted = rawStaffId.match(/[0-9]+/)
   if (!extracted) return
   const staffId = extracted[0]
+  console.log(`new member: staffId='${staffId}', submittedName='${name}'`)
   const res = await verifyHduStaff(staffId, name)
   if (!res.verified) {
     console.log('identity mismatch, not accepting. user_id:', user_id)
