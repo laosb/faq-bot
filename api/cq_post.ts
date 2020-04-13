@@ -6,7 +6,7 @@ import { CQHTTPPostPayload } from './_types'
 export default async (request: NowRequest, response: NowResponse) => {
   if (request.method !== 'POST') return response.status(400).send('post please')
 
-  const reqPayload = JSON.parse(request.body)
+  const reqPayload = request.body
   const { post_type } = reqPayload as CQHTTPPostPayload
 
   if (post_type === 'message')
@@ -15,4 +15,5 @@ export default async (request: NowRequest, response: NowResponse) => {
     })
   else if (post_type === 'request')
     return response.status(200).json(await handleRequest(reqPayload))
+  else response.status(200).json({})
 }
