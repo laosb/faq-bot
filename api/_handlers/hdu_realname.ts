@@ -42,6 +42,7 @@ const makeInternalReq = async (
     },
   })
   const json = await res.json()
+  console.log('internal call result:', JSON.stringify(json, null, 2))
   if (json && json.error === 0) return json
 }
 
