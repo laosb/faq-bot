@@ -1,0 +1,12 @@
+{
+  "name": "faq-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://laosb@github.com/hduhelp/faq-bot.git",
+  "author": "Shibo Lyu <laosb@lns.unihubs.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@now/node": "^1.5.0"
+  }
+}
