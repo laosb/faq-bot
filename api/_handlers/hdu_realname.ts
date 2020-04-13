@@ -53,8 +53,8 @@ type HduVerifyStatus = {
 }
 const verifyHduStaff: (
   staffId: string,
-  name: string
-) => Promise<HduVerifyStatus> = async (staffId, name) => {
+  comment: string
+) => Promise<HduVerifyStatus> = async (staffId, comment) => {
   const res = await makeInternalReq(
     'base',
     '/person/info',
@@ -64,9 +64,10 @@ const verifyHduStaff: (
   )
   if (!res) return { verified: false }
   console.log(
-    `staffId='${staffId}', expected name='${res.data.STAFFNAME}', submitted '${name}'`
+    `staffId='${staffId}', expected name='${res.data.STAFFNAME}', submitted '${comment}'`
   )
-  if (res.data && res.data.STAFFNAME === name) {
+  if (res.data && comment.includes(res.data.STAFFNAME)) {
+    const name = res.data.STAFFNAME
     let prefix = ''
     const dep = departmentShort[res.data.UNITCODE] || ''
     if (dep) prefix += dep + '-'
@@ -107,14 +108,12 @@ const setMemberCard = async (
 
 export default async (payload: CQHTTPPostPayload) => {
   const { flag, comment, user_id, group_id } = payload
-  const parts = comment.trim().split(' ')
-  if (parts.length !== 2) return
-  const [rawStaffId, name] = parts
-  const extracted = rawStaffId.match(/[0-9]+/)
+
+  const extracted = comment.match(/[0-9]+/)
   if (!extracted) return
   const staffId = extracted[0]
-  console.log(`new member: staffId='${staffId}', submittedName='${name}'`)
-  const res = await verifyHduStaff(staffId, name)
+  console.log(`new member: staffId='${staffId}'`)
+  const res = await verifyHduStaff(staffId, comment)
   if (!res.verified) {
     console.log('identity mismatch, not accepting. user_id:', user_id)
     return
