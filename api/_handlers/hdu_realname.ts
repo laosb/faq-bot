@@ -66,6 +66,7 @@ const verifyHduStaff: (
     const dep = departmentShort[res.data.UNITCODE] || ''
     if (dep) prefix += dep + '-'
     if (res.data.STAFFTYPE === '1') prefix += staffId.slice(0, 2) + '-'
+    console.log('new member card:', prefix + name)
     return { verified: true, card: prefix + name }
   } else return { verified: false }
 }
@@ -98,8 +99,10 @@ export default async (payload: CQHTTPPostPayload) => {
   if (!extracted) return
   const staffId = extracted[0]
   const res = await verifyHduStaff(staffId, name)
-  if (!res.verified) return
-
+  if (!res.verified) {
+    console.log('identity mismatch, not accepting. user_id:', user_id)
+    return
+  }
   await Promise.all([
     approveGroupAdd(flag),
     setMemberCard(user_id, group_id, res.card),
