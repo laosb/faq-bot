@@ -41,7 +41,7 @@ const makeInternalReq = async (
       'user-agent': 'laosb QQ bot',
     },
   })
-  console.log('internal call result:', res.body)
+  console.log('internal call result:', await res.text())
   const json = await res.json()
   if (json && json.error === 0) return json
 }
