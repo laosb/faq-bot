@@ -22,6 +22,7 @@ export type CQHTTPPostPayload = {
   self_id: number
   user_id: number // request qq number
   comment: string // reason for invite/add
+  flag: string
   message: CQHTTPMessage
   group_id: number // Group only
   sender: CQHTTPSenderGroup // TODO: for private

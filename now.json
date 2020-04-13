@@ -1,0 +1,6 @@
+{
+  "env": {
+    "HDUHELP_INTERNAL_API_SIGN_SALT": "@hduhelp-internal-api-sign-salt",
+    "CQ_HTTP_ACCESS_TOKEN": "@cq-http-access-token"
+  }
+}
