@@ -83,6 +83,10 @@ const approveGroupAdd = async (flag: string) => {
     sub_type: 'add',
     approve: true,
   })
+  console.log(
+    'group add req url:',
+    generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
+  )
   const res = await fetch(
     generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
   )
@@ -99,6 +103,10 @@ const setMemberCard = async (
     group_id,
     card,
   })
+  console.log(
+    'memeber card set req url:',
+    generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
+  )
   const res = await fetch(
     generalConfig.cqHttpEndpoint + `/set_group_card？${query}`
   )
@@ -119,8 +127,6 @@ export default async (payload: CQHTTPPostPayload) => {
     console.log('identity mismatch, not accepting. user_id:', user_id)
     return
   }
-  await Promise.all([
-    approveGroupAdd(flag),
-    setMemberCard(user_id, group_id, res.card),
-  ])
+  await approveGroupAdd(flag)
+  await setMemberCard(user_id, group_id, res.card)
 }
