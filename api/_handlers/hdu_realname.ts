@@ -8,11 +8,11 @@ const HDUHELP_INTERNAL_API_SIGN_SALT =
   process.env.HDUHELP_INTERNAL_API_SIGN_SALT
 const CQ_HTTP_ACCESS_TOKEN = process.env.CQ_HTTP_ACCESS_TOKEN
 
-const getTimestamp = () => Math.round(new Date().getTime() / 1000).toString()
-const generateInternalSign = (timestamp: string) =>
+const getTimestamp = () => Math.round(new Date().getTime() / 1000)
+const generateInternalSign = (timestamp: number) =>
   crypto
     .createHash('sha1')
-    .update(HDUHELP_INTERNAL_API_SIGN_SALT + getTimestamp())
+    .update(HDUHELP_INTERNAL_API_SIGN_SALT + timestamp.toString())
     .digest('hex')
 const makeInternalReq = async (
   to: string,
