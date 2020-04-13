@@ -21,6 +21,11 @@ export default {
         [':thisthat', '：这个那个'],
         "非管理员正则匹配 /(这|那)个东西/，管理员匹配[':thisthat', '：这个那个']",
       ],
+      [
+        /(?=.*VPN)(?=.*申请)^.*$/,
+        [':VPN', '：VPN'],
+        "本科生VPN账号申请: http://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/",
+      ],
     ] as GroupReplyRule[],
   },
 }
