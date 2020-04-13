@@ -83,10 +83,6 @@ const approveGroupAdd = async (flag: string) => {
     sub_type: 'add',
     approve: true,
   })
-  console.log(
-    'group add req url:',
-    generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
-  )
   const res = await fetch(
     generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
   )
@@ -103,12 +99,8 @@ const setMemberCard = async (
     group_id,
     card,
   })
-  console.log(
-    'memeber card set req url:',
-    generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
-  )
   const res = await fetch(
-    generalConfig.cqHttpEndpoint + `/set_group_card？${query}`
+    generalConfig.cqHttpEndpoint + `/set_group_card?${query}`
   )
   if (!res.ok) throw new Error('failed to set member card:' + res.body)
 }
