@@ -93,7 +93,10 @@ export default async (payload: CQHTTPPostPayload) => {
   const { flag, comment, user_id, group_id } = payload
   const parts = comment.trim().split(' ')
   if (parts.length !== 2) return
-  const [staffId, name] = parts
+  const [rawStaffId, name] = parts
+  const extracted = rawStaffId.match(/[0-9]+/)
+  if (!extracted) return
+  const staffId = extracted[0]
   const res = await verifyHduStaff(staffId, name)
   if (!res.verified) return
 
