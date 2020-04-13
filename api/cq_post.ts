@@ -1,6 +1,7 @@
 import { NowRequest, NowResponse } from '@now/node'
 import handleMessage from './_handlers/message'
 import handleRequest from './_handlers/request'
+import { CQHTTPPostPayload } from './_types'
 
 export default async (request: NowRequest, response: NowResponse) => {
   if (request.method !== 'POST') return response.status(400).send('post please')

@@ -1,4 +1,5 @@
 import generalConfig from '../_config/general'
+import { CQHTTPPostPayload } from '../_types'
 export default async (payload: CQHTTPPostPayload) => {
   if (payload.request_type === 'group') {
     if (payload.sub_type === 'invite') {

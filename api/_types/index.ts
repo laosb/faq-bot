@@ -1,12 +1,12 @@
-type CQHTTPMessage = string // TODO: Support other formats
-type CQHTTPSenderGroup = {
+export type CQHTTPMessage = string // TODO: Support other formats
+export type CQHTTPSenderGroup = {
   user_id: number
   nickname: string
   card: string
   role: 'owner' | 'admin' | 'member'
 }
-type CQHTTPRequestSubType = 'add' | 'invite'
-type CQHTTPPostPayload = {
+export type CQHTTPRequestSubType = 'add' | 'invite'
+export type CQHTTPPostPayload = {
   post_type: 'message' | 'notice' | 'request'
   request_type: 'group' | 'friend'
   sub_type: CQHTTPRequestSubType // TODO: other sub types.
@@ -27,11 +27,11 @@ type CQHTTPPostPayload = {
   sender: CQHTTPSenderGroup // TODO: for private
 }
 
-type GroupReplyRuleRegExp = RegExp
-type GroupReplyRuleAdminTriggers = string[]
-type GroupReplyRuleReplyTmpl = string
+export type GroupReplyRuleRegExp = RegExp
+export type GroupReplyRuleAdminTriggers = string[]
+export type GroupReplyRuleReplyTmpl = string
 
-type GroupReplyRule = [
+export type GroupReplyRule = [
   GroupReplyRuleRegExp,
   GroupReplyRuleAdminTriggers,
   GroupReplyRuleReplyTmpl

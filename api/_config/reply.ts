@@ -1,3 +1,5 @@
+import { GroupReplyRule } from '../_types'
+
 export default {
   group: {
     // 杭電助手答疑群

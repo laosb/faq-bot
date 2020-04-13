@@ -1,4 +1,5 @@
 import rules from '../_config/reply'
+import { CQHTTPPostPayload, GroupReplyRule } from '../_types'
 
 export default async (payload: CQHTTPPostPayload) => {
   if (payload.message_type === 'group') {
