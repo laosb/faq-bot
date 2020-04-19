@@ -72,6 +72,7 @@ const verifyHduStaff: (
     const dep = departmentShort[res.data.UNITCODE] || ''
     if (dep) prefix += dep + '-'
     if (res.data.STAFFTYPE === '1') prefix += staffId.slice(0, 2) + '-'
+    if (res.data.STAFFTYPE === '3') prefix += '研' + staffId.slice(0, 2) + '-'
     console.log('new member card:', prefix + name)
     return { verified: true, card: prefix + name }
   } else return { verified: false }
