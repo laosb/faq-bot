@@ -15,7 +15,7 @@ export default {
         "本科生VPN账号申请: http://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n easyconnect使用方法具体可见群文件"
       ],
       [
-        /(?=.*钉钉)(?=.*组织|加入|学生)(?=.*(不|没|失败|提示|显示))^.*$/i,
+        /(?=.*钉钉)(?=.*组织|加入|手机|号码|修改|绑定|学生)(?=.*(不|没|再次|第二次|错|重新|失败|提示|显示))^.*$/i,
         [':dd', '：dd'],
         "无法加入钉钉组织或手机号错误？扫描下方二维码填报手机号\n[CQ:image,file=https://static2.hduhelp.com/A7B1712991B64CB60EBBC29CD2657E84.jpg]\n如果提示不能重新申请，请将学号及错误截图私发给 [CQ:at,qq=707425690] 并等待回复",
       ],
@@ -37,7 +37,7 @@ export default {
         "本科生VPN账号申请: http://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n easyconnect使用方法具体可见群文件",
       ],
       [
-        /(?=.*钉钉)(?=.*组织|加入|学生)(?=.*(不|没|失败|提示|显示))^.*$/i,
+        /(?=.*钉钉)(?=.*组织|加入|手机|号码|修改|绑定|学生)(?=.*(不|没|再次|第二次|错|重新|失败|提示|显示))^.*$/i,
         [':dd', '：dd'],
         "无法加入钉钉组织或手机号错误？扫描下方二维码填报手机号\n[CQ:image,file=https://static2.hduhelp.com/A7B1712991B64CB60EBBC29CD2657E84.jpg]\n如果提示不能重新申请，请将学号及错误截图私发给 [CQ:at,qq=707425690] 并等待回复",
       ],
