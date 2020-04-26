@@ -1,3 +1,4 @@
+import hduhelpQaGroupWhitelist from './hduhelpQaGroupWhitelist'
 export default {
   cqHttpEndpoint: 'https://[REDACTED]',
   groupInviterWhitelist: [
@@ -10,4 +11,7 @@ export default {
     [REDACTED], // 干锅群
     [REDACTED], // Apple 用戶群
   ],
+  groupPurgeWhitelist: {
+    [REDACTED]: hduhelpQaGroupWhitelist,
+  },
 }

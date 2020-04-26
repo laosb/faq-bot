@@ -27,6 +27,23 @@ export type CQHTTPPostPayload = {
   group_id: number // Group only
   sender: CQHTTPSenderGroup // TODO: for private
 }
+export type CQHTTPGroupMember = {
+  group_id: number
+  user_id: number
+  nickname: number
+  card: string
+  sex: 'male' | 'female' | 'unknown'
+  age: number
+  area: string
+  join_time: number
+  last_sent_time: number
+  level: string
+  role: 'owner' | 'admin' | 'member'
+  unfriendly: boolean
+  title: string
+  title_expire_time: number
+  card_changeable: boolean
+}
 
 export type GroupReplyRuleRegExp = RegExp
 export type GroupReplyRuleAdminTriggers = string[]
