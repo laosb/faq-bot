@@ -19,7 +19,7 @@ export default async (payload: CQHTTPPostPayload) => {
       return 'insufficient privilege or not in group'
     }
     const maintainNumberGroup = payload.message.match(
-      /(?:保持?|maintain)(\d+)/i
+      /(?:保[持留]?|留下?|maintain)(\d+)/i
     )
     const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : null
     if (maintainNumber) {
