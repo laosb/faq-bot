@@ -10,7 +10,7 @@ export default async (payload: CQHTTPPostPayload) => {
     const res = await cqRequest('get_group_member_list', {
       group_id: groupId,
     })
-    const members = (await res.json()) as [CQHTTPGroupMember]
+    const members = (await res.json()).data as [CQHTTPGroupMember]
     const commander = members.find(({ user_id }) => user_id === payload.user_id)
     if (
       !commander ||
