@@ -3,7 +3,7 @@ import { cqRequest } from '../_utils'
 import config from '../_config/general'
 
 export default async (payload: CQHTTPPostPayload) => {
-  const groupIdGroup = payload.message.match(/(?=群|group)(\d+)/i)
+  const groupIdGroup = payload.message.match(/(?:群|group)(\d+)/i)
   const groupIdStr = groupIdGroup ? groupIdGroup[1] : '0'
   const groupId = parseInt(groupIdStr, 10)
   if (groupId) {
@@ -19,7 +19,7 @@ export default async (payload: CQHTTPPostPayload) => {
       return 'insufficient privilege or not in group'
     }
     const maintainNumberGroup = payload.message.match(
-      /(?=保持?|maintain)(\d+)/i
+      /(?:保持?|maintain)(\d+)/i
     )
     const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : '0'
     if (maintainNumber) {
@@ -36,7 +36,7 @@ export default async (payload: CQHTTPPostPayload) => {
         )
         .sort((a, b) => a.last_sent_time - b.last_sent_time)
         .slice(0, numberToRemove)
-      if (payload.message.match(/(?=confirm|確認|确认)/)) {
+      if (payload.message.match(/(?:confirm|確認|确认)/)) {
         outputMessage += 'confirmed, executing.\n'
         const beforeDate = new Date()
         await Promise.all(
