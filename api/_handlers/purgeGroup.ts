@@ -21,7 +21,7 @@ export default async (payload: CQHTTPPostPayload) => {
     const maintainNumberGroup = payload.message.match(
       /(?:保持?|maintain)(\d+)/i
     )
-    const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : '0'
+    const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : null
     if (maintainNumber) {
       let outputMessage = ''
       const maintainNumberInNumber = parseInt(maintainNumber, 10)
