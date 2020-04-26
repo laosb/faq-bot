@@ -2,12 +2,10 @@ import { CQHTTPPostPayload } from '../_types'
 import crypto from 'crypto'
 import fetch from 'node-fetch'
 import departmentShort from '../_config/hduDepartmentShort'
-import generalConfig from '../_config/general'
-import qs from 'querystring'
+import { cqRequest } from '../_utils'
 
 const HDUHELP_INTERNAL_API_SIGN_SALT =
   process.env.HDUHELP_INTERNAL_API_SIGN_SALT
-const CQ_HTTP_ACCESS_TOKEN = process.env.CQ_HTTP_ACCESS_TOKEN
 
 const getTimestamp = () => Math.round(new Date().getTime() / 1000)
 const generateInternalSign = (timestamp: number) =>
@@ -79,15 +77,12 @@ const verifyHduStaff: (
 }
 
 const approveGroupAdd = async (flag: string) => {
-  const query = qs.encode({
-    access_token: CQ_HTTP_ACCESS_TOKEN,
+  const res = await cqRequest('set_group_add_request', {
     flag,
     sub_type: 'add',
     approve: true,
   })
-  const res = await fetch(
-    generalConfig.cqHttpEndpoint + `/set_group_add_request?${query}`
-  )
+
   if (!res.ok) throw new Error('failed to approve:' + res.body)
 }
 const setMemberCard = async (
@@ -95,15 +90,12 @@ const setMemberCard = async (
   group_id: number,
   card: string = ''
 ) => {
-  const query = qs.encode({
-    access_token: CQ_HTTP_ACCESS_TOKEN,
+  const res = await cqRequest('set_group_card', {
     user_id,
     group_id,
     card,
   })
-  const res = await fetch(
-    generalConfig.cqHttpEndpoint + `/set_group_card?${query}`
-  )
+
   if (!res.ok) throw new Error('failed to set member card:' + res.body)
 }
 
