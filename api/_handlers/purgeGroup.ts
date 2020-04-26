@@ -26,6 +26,10 @@ export default async (payload: CQHTTPPostPayload) => {
       let outputMessage = ''
       const maintainNumberInNumber = parseInt(maintainNumber, 10)
       const numberToRemove = members.length - maintainNumberInNumber
+      if (numberToRemove <= 0) {
+        outputMessage += 'no need to remove, exiting.'
+        return outputMessage
+      }
       outputMessage += `currently ${members.length} members, expect to maintain ${maintainNumberInNumber}, now to remove ${numberToRemove}.\n`
       const groupWhitelist: [number] = config.groupPurgeWhitelist[groupId] || []
       const membersToRemove = members
