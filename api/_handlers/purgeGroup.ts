@@ -24,15 +24,16 @@ export default async (payload: CQHTTPPostPayload) => {
     const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : '0'
     if (maintainNumber) {
       let outputMessage = ''
-      let maintainNumberInNumber = parseInt(maintainNumber, 10)
-      let numberToRemove = members.length - maintainNumberInNumber
+      const maintainNumberInNumber = parseInt(maintainNumber, 10)
+      const numberToRemove = members.length - maintainNumberInNumber
       outputMessage += `currently ${members.length} members, expect to maintain ${maintainNumberInNumber}, now to remove ${numberToRemove}.\n`
-      let membersToRemove = members
+      const groupWhitelist: [number] = config.groupPurgeWhitelist[groupId] || []
+      const membersToRemove = members
         .filter(
           ({ user_id, role }) =>
             role !== 'owner' && // not owner
             role !== 'admin' && // not admin
-            !(config.groupPurgeWhitelist[groupId] as [number]).includes(user_id) // not in whitelist
+            !groupWhitelist.includes(user_id) // not in whitelist
         )
         .sort((a, b) => a.last_sent_time - b.last_sent_time)
         .slice(0, numberToRemove)
