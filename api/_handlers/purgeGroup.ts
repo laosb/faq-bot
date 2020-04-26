@@ -3,7 +3,8 @@ import { cqRequest } from '../_utils'
 import config from '../_config/general'
 
 export default async (payload: CQHTTPPostPayload) => {
-  const groupIdStr = payload.message.match(/(?=群|group)(\d+)/i)?.[1]
+  const groupIdGroup = payload.message.match(/(?=群|group)(\d+)/i)
+  const groupIdStr = groupIdGroup ? groupIdGroup[1] : '0'
   const groupId = parseInt(groupIdStr, 10)
   if (groupId) {
     const res = await cqRequest('get_group_member_list', {
@@ -17,9 +18,10 @@ export default async (payload: CQHTTPPostPayload) => {
     ) {
       return 'insufficient privilege or not in group'
     }
-    const maintainNumber = payload.message.match(
+    const maintainNumberGroup = payload.message.match(
       /(?=保持?|maintain)(\d+)/i
-    )?.[1]
+    )
+    const maintainNumber = maintainNumberGroup ? maintainNumberGroup[1] : '0'
     if (maintainNumber) {
       let outputMessage = ''
       let maintainNumberInNumber = parseInt(maintainNumber, 10)
