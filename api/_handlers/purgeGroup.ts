@@ -2,6 +2,8 @@ import { CQHTTPPostPayload, CQHTTPGroupMember } from '../_types'
 import { cqRequest } from '../_utils'
 import config from '../_config/general'
 
+const TIME_SEPARATION_MS = 20
+
 export default async (payload: CQHTTPPostPayload) => {
   const groupIdGroup = payload.message.match(/(?:群|group)(\d+)/i)
   const groupIdStr = groupIdGroup ? groupIdGroup[1] : '0'
@@ -45,13 +47,16 @@ export default async (payload: CQHTTPPostPayload) => {
         outputMessage += 'confirmed, executing.\n'
         const beforeDate = new Date()
         await Promise.all(
-          membersToRemove.map((m) =>
-            cqRequest('set_group_kick', {
+          membersToRemove.map(async (m, idx) => {
+            await new Promise((resolve) =>
+              setTimeout(() => resolve(), idx * TIME_SEPARATION_MS)
+            )
+            await cqRequest('set_group_kick', {
               group_id: groupId,
               user_id: m.user_id,
               reject_add_request: false,
             })
-          )
+          })
         )
         const afterDate = new Date()
         const timeUsed = afterDate.getTime() - beforeDate.getTime()
