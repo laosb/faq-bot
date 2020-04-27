@@ -5,7 +5,7 @@ import config from '../_config/general'
 export default async (payload: CQHTTPPostPayload) => {
   const groupIdGroup = payload.message.match(/(?:群|group)(\d+)/i)
   const groupIdStr = groupIdGroup ? groupIdGroup[1] : '0'
-  const groupId = parseInt(groupIdStr, 10)
+  const groupId = parseInt(groupIdStr, 10) || payload.group_id
   if (groupId) {
     const res = await cqRequest('get_group_member_list', {
       group_id: groupId,
