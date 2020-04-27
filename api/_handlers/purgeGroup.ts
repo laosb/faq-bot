@@ -1,23 +1,16 @@
 import { CQHTTPPostPayload, CQHTTPGroupMember } from '../_types'
 import { cqRequest } from '../_utils'
 import config from '../_config/general'
+import { getGroupPurgeList, purgeGroupFromList } from '../_core/purgeGroup'
 
-const TIME_SEPARATION_MS = 150
+const TIME_SEPARATION_MS = 500
 
 export default async (payload: CQHTTPPostPayload) => {
   const groupIdGroup = payload.message.match(/(?:群|group)(\d+)/i)
   const groupIdStr = groupIdGroup ? groupIdGroup[1] : '0'
   const groupId = parseInt(groupIdStr, 10) || payload.group_id
   if (groupId) {
-    const res = await cqRequest('get_group_member_list', {
-      group_id: groupId,
-    })
-    const members = (await res.json()).data as [CQHTTPGroupMember]
-    const commander = members.find(({ user_id }) => user_id === payload.user_id)
-    if (
-      !commander ||
-      (commander.role !== 'owner' && commander.role !== 'admin')
-    ) {
+    if (payload.sender.role !== 'owner' && payload.sender.role !== 'admin') {
       return 'insufficient privilege or not in group'
     }
     const maintainNumberGroup = payload.message.match(
@@ -27,35 +20,20 @@ export default async (payload: CQHTTPPostPayload) => {
     if (maintainNumber) {
       let outputMessage = ''
       const maintainNumberInNumber = parseInt(maintainNumber, 10)
-      const numberToRemove = members.length - maintainNumberInNumber
-      if (numberToRemove <= 0) {
+      const membersToRemove = await getGroupPurgeList(
+        groupId,
+        maintainNumberInNumber
+      )
+      if (membersToRemove.length === 0) {
         outputMessage += 'no need to remove, exiting.'
         return outputMessage
       }
-      outputMessage += `currently ${members.length} members, expect to maintain ${maintainNumberInNumber}, now to remove ${numberToRemove}.\n`
-      const groupWhitelist: [number] = config.groupPurgeWhitelist[groupId] || []
-      const membersToRemove = members
-        .filter(
-          ({ user_id, role }) =>
-            role !== 'owner' && // not owner
-            role !== 'admin' && // not admin
-            !groupWhitelist.includes(user_id) // not in whitelist
-        )
-        .sort((a, b) => a.last_sent_time - b.last_sent_time)
-        .slice(0, numberToRemove)
+      outputMessage += `expected to maintain ${maintainNumberInNumber}, removing ${membersToRemove.length}.\n`
       if (payload.message.match(/(?:confirm|確認|确认)/)) {
         outputMessage += 'confirmed, executing.\n'
-        const sleep = (time) =>
-          new Promise((resolve) => setTimeout(resolve, time))
+
         const beforeDate = new Date()
-        for (let m of membersToRemove) {
-          await sleep(TIME_SEPARATION_MS)
-          await cqRequest('set_group_kick', {
-            group_id: groupId,
-            user_id: m.user_id,
-            reject_add_request: false,
-          })
-        }
+        await purgeGroupFromList(groupId, membersToRemove)
         const afterDate = new Date()
         const timeUsed = afterDate.getTime() - beforeDate.getTime()
         outputMessage += `executed in ${timeUsed} ms.`

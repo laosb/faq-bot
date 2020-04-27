@@ -15,3 +15,6 @@ export const cqRequest = async (
   const res = await fetch(generalConfig.cqHttpEndpoint + `/${command}?${query}`)
   return res
 }
+
+export const sleep = (time) =>
+  new Promise((resolve) => setTimeout(resolve, time))

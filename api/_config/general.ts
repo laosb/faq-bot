@@ -11,7 +11,11 @@ export default {
     [REDACTED], // 干锅群
     [REDACTED], // Apple 用戶群
   ],
+  autoMaintainGroups: {
+    [REDACTED]: 2900, // group id: maintain at
+  },
   groupPurgeWhitelist: {
     [REDACTED]: hduhelpQaGroupWhitelist,
   },
+  waitTimeBetweenGroupKicksMs: 500,
 }
