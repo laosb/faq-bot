@@ -56,6 +56,15 @@ export default async (payload: CQHTTPPostPayload) => {
         const afterDate = new Date()
         const timeUsed = afterDate.getTime() - beforeDate.getTime()
         outputMessage += `executed in ${timeUsed} ms.`
+      } else if (payload.message.match(/(?:notify|提醒)/)) {
+        const beforeLastSentDateStr = new Date(
+          membersToRemove[membersToRemove.length - 1].last_sent_time * 1000
+        ).toLocaleDateString()
+        outputMessage = `本群將清除上次發言早於${beforeLastSentDateStr}（含）的群員，預計此次清除後群員人數將降至${maintainNumberInNumber}人，若不想被移除，請這些群員儘快在群內進行一次發言。懇請其他群員勿跟風，以避免灌水影響本群的功能。\n`
+        membersToRemove.forEach((m) => {
+          outputMessage += `[CQ:at,qq=${m.user_id}] `
+        })
+        return outputMessage
       } else {
         outputMessage += 'members to remove:\n'
         membersToRemove.forEach((m) => {
