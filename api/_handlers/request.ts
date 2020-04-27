@@ -16,7 +16,7 @@ export default async (payload: CQHTTPPostPayload) => {
         }
     } else if (payload.sub_type === 'add') {
       if (config.hduRealnameVerifyGroups.includes(payload.group_id))
-        await handleHduRealnameVerify(payload)
+        handleHduRealnameVerify(payload)
       if (
         Object.keys(
           config.autoMaintainGroups as { [group: number]: number }
