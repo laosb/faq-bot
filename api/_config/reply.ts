@@ -10,7 +10,7 @@ export default {
         '本群群文件「创新、实践学分」文件夹中有各类关于创新学分的内容可以参考。', // Reply template.
       ],
       [
-        /(?=.*创新学fsiurjgjodrijgofijgoisjgoisjsijfsoidf分))^.*$/i, // Regex to match (non-admin)
+        /(?=.*创新学fsiurjgjodrijgofijgoisjgoisjsijfsoidf分)^.*$/i, // Regex to match (non-admin)
         [':ios', '：ios'], // Manually trigger (admin-only)
         '返校系统目前仅对iOS11及以上版本系统保证兼容，较低版本无法保证兼容性，请升级系统或尝试使用安卓设备', // Reply template.
       ],
