@@ -45,19 +45,17 @@ export default async (payload: CQHTTPPostPayload) => {
         .slice(0, numberToRemove)
       if (payload.message.match(/(?:confirm|確認|确认)/)) {
         outputMessage += 'confirmed, executing.\n'
+        const sleep = (time) =>
+          new Promise((resolve) => setTimeout(resolve, time))
         const beforeDate = new Date()
-        await Promise.all(
-          membersToRemove.map(async (m, idx) => {
-            await new Promise((resolve) =>
-              setTimeout(() => resolve(), idx * TIME_SEPARATION_MS)
-            )
-            await cqRequest('set_group_kick', {
-              group_id: groupId,
-              user_id: m.user_id,
-              reject_add_request: false,
-            })
+        for (let m of membersToRemove) {
+          await sleep(TIME_SEPARATION_MS)
+          await cqRequest('set_group_kick', {
+            group_id: groupId,
+            user_id: m.user_id,
+            reject_add_request: false,
           })
-        )
+        }
         const afterDate = new Date()
         const timeUsed = afterDate.getTime() - beforeDate.getTime()
         outputMessage += `executed in ${timeUsed} ms.`
