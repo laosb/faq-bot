@@ -2,7 +2,7 @@ import { CQHTTPPostPayload, CQHTTPGroupMember } from '../_types'
 import { cqRequest } from '../_utils'
 import config from '../_config/general'
 
-const TIME_SEPARATION_MS = 20
+const TIME_SEPARATION_MS = 50
 
 export default async (payload: CQHTTPPostPayload) => {
   const groupIdGroup = payload.message.match(/(?:群|group)(\d+)/i)
