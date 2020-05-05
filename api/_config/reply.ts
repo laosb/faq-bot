@@ -4,10 +4,16 @@ export default {
   group: {
     // 杭電助手答疑群
     [REDACTED]: [
+      
       [
         /(?=.*创新学分)(?=.*(怎么|哪里|如何))^.*$/i, // Regex to match (non-admin)
         [':cx', '：创新'], // Manually trigger (admin-only)
         '本群群文件「创新、实践学分」文件夹中有各类关于创新学分的内容可以参考。', // Reply template.
+      ],
+      [
+        /(?=.*弗雷德)(?=.*(快递)(?=.*(请假))^.*$/i, // Regex to match (non-admin)
+        [':fld', '：fld'], // Manually trigger (admin-only)
+        '按照目前学校安排，去弗雷德取快递需要请假', // Reply template.
       ],
       [
         /(?=.*创新学fsiurjgjodrijgofijgoisjgoisjsijfsoidf分)^.*$/i, // Regex to match (non-admin)
