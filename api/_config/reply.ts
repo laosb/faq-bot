@@ -4,11 +4,15 @@ export default {
   group: {
     // 杭電助手答疑群
     [REDACTED]: [
-      
       [
         /(?=.*创新学分)(?=.*(怎么|哪里|如何))^.*$/i, // Regex to match (non-admin)
         [':cx', '：创新'], // Manually trigger (admin-only)
         '本群群文件「创新、实践学分」文件夹中有各类关于创新学分的内容可以参考。', // Reply template.
+      ],
+      [
+        /(?=.*请假)(?=.*(怎么|哪里|如何|不能|没有|啊|生成|码))^.*$/i, // Regex to match (non-admin)
+        [':qj', '：qj'], // Manually trigger (admin-only)
+        '请假相关流程及常见问题请参考此链接说明：\n\n https://kb.hduhelp.com/pages/viewpage.action?pageId=1343504', // Reply template.
       ],
       [
         /(?=.*弗雷德)(?=.*(快递))(?=.*(请假))^.*$/i, // Regex to match (non-admin)
