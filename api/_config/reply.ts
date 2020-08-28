@@ -63,7 +63,7 @@ const testRules: GroupReplyRule[] = [
 
 export default {
   group: {
-    [REDACTED]: QaGroupReplyRules, // 杭電助手答疑群
+    // [REDACTED]: QaGroupReplyRules, // 杭電助手答疑群
     [REDACTED]: [...testRules, ...QaGroupReplyRules], // Lemon Tree
     [REDACTED]: [...testRules, ...QaGroupReplyRules], // Salmon
   },
