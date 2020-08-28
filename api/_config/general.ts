@@ -1,6 +1,7 @@
 import hduhelpQaGroupWhitelist from './hduhelpQaGroupWhitelist'
 export default {
   cqHttpEndpoint: 'https://[REDACTED]',
+  logGroup: [REDACTED], // FAQ Bot Log
   groupInviterWhitelist: [
     [REDACTED], // laosb
   ],
@@ -9,10 +10,11 @@ export default {
     [REDACTED], // 答疑群
     [REDACTED], // Lemon Tree
     [REDACTED], // 干锅群
+    [REDACTED], // Salmon
     [REDACTED], // Apple 用戶群
   ],
   autoMaintainGroups: {
-    [REDACTED]: 2970, // group id: maintain at
+    // [REDACTED]: 2970, // group id: maintain at
   },
   groupPurgeWhitelist: {
     [REDACTED]: hduhelpQaGroupWhitelist,
