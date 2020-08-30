@@ -44,7 +44,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '考生号是全国统一的高考考生编号，一般是 14 位，其中前两位是年份代码（20），请检查高考相关文件。\n' +
       '对于浙江省考生，考生号即准考证号。\n' +
       '高考生可以在学校招生页面查询自己的考生号。\n' +
-      'http://zhaosheng.hdu.edu.cn/list.php?cid=114 \n' +
+      // 'http://zhaosheng.hdu.edu.cn/list.php?cid=114 \n' +
       '若尝试所有相关编号均无果可以延后一天再试。',
   ],
 ]
