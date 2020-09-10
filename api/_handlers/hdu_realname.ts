@@ -38,6 +38,7 @@ const makeInternalReq = async (
     headers: {
       sign,
       'user-agent': 'laosb QQ bot',
+      'x-hduhelp-cache': 'no-cache',
     },
   })
   const json = await res.json()
