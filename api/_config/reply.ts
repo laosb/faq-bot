@@ -47,6 +47,13 @@ const QaGroupReplyRules: GroupReplyRule[] = [
       'http://zhaosheng.hdu.edu.cn/list.php?cid=114 \n' +
       '若尝试所有相关编号均无果可以延后一天再试。',
   ],
+  [
+    /(?=.*密码)(?=.*(忘|重置|))/i,
+    [':pwd', '：密碼', '：密码'],
+    '杭电助手的系统本身没有密码，而使用杭电统一认证登录来验证你的身份。\n' +
+      '若需要重置统一认证登录的密码，请按 https://cas.hdu.edu.cn/cas/pwd 上的提示按步骤操作。\n' +
+      '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。',
+  ],
 ]
 
 const testRules: GroupReplyRule[] = [
