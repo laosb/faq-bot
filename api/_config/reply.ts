@@ -56,7 +56,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
       '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。',
   ],
   [
-    /招新/i,
+    /(?=.*招新)/i,
     [':zszx', '：招新', '：招新',':招新'],
     '杭电助手招新啦！ \n' +
       '杭电助手致力于服务全校师生，如果你们对我们正在做的项目，例如疫情防控、自助报道、健康打卡、特殊退改选等感兴趣，欢迎加入我们。\n' +
