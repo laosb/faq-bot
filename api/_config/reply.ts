@@ -55,6 +55,15 @@ const QaGroupReplyRules: GroupReplyRule[] = [
       '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。\n' +
       '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。',
   ],
+  [
+    /(?=.*招新)/i,
+    [':zszx', '：招新', '：招新',':招新'],
+    '杭电助手招新啦！ \n' +
+      '杭电助手致力于服务全校师生，如果你们对我们正在做的项目，例如疫情防控、自助报道、健康打卡、特殊推改选等感兴趣，欢迎加入我们。\n' +
+      '招新群群号：858541229 \n' +
+      '[CQ:image,file=https://static2.hduhelp.com/zhaoxin.JPG] \n' + 
+      '扫码加群哦',
+  ],
 ]
 
 const testRules: GroupReplyRule[] = [
