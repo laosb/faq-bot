@@ -62,7 +62,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
       '杭电助手致力于服务全校师生，如果你们对我们正在做的项目，例如疫情防控、自助报道、健康打卡、特殊退改选等感兴趣，欢迎加入我们。\n' +
       '招新群群号：858541229 \n' +
       '[CQ:image,file=https://static2.hduhelp.com/zhaoxin.JPG] \n' + 
-      '扫码报名哦',
+      '扫码或点击链接报名哦 https://type.hduhelp.com',
   ],
 ]
 
