@@ -14,7 +14,7 @@ export default {
     [REDACTED], // Apple 用戶群
   ],
   autoMaintainGroups: {
-    // [REDACTED]: 2970, // group id: maintain at
+    [REDACTED]: 2975, // group id: maintain at
   },
   groupPurgeWhitelist: {
     [REDACTED]: hduhelpQaGroupWhitelist,
