@@ -71,7 +71,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
       '请前往杭电易班答疑群（654618144）尝试获得解答。',
   ],
   [
-    /(阳光长跑).*(查询|怎么|哪里|如何|了|体联|？|\?)/i,
+    /(助手).*(阳光长跑).*(暂停|关了|查询|怎么|哪里|如何|了|体联|？|\?)/i,
     [':sunrun','：阳光长跑'],
     "出于一些原因，杭电助手阳光长跑服务已经暂停，具体原因请见: \n" +
     "https://salmon.hduhelp.com/_static/sunrunSunset.html \n\n" +
