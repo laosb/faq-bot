@@ -52,7 +52,8 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '杭电助手的系统本身没有密码，而使用杭电统一认证登录来验证你的身份。\n' +
       '若需要重置统一认证登录的密码，请按 https://cas.hdu.edu.cn/cas/pwd 上的提示按步骤操作。\n' +
       '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。\n' +
-      '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。',
+      '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。\n' +
+      '对于阳光长跑的密码，请常见 http://hdu.sunnysport.org.cn 。',
   ],
   // [
   //   /(?=.*招新)/i,
@@ -81,6 +82,14 @@ const testRules: GroupReplyRule[] = [
     /(这|那)个东西/,
     [':thisthat', '：这个那个'],
     "非管理员正则匹配 /(这|那)个东西/，管理员匹配[':thisthat', '：这个那个']",
+  ],
+  [
+    /(?=.*(阳光长跑))(?=.*(体联))(?=.*(怎么|哪里|如何))^.*$/i,
+    [':sunrun','：阳光长跑'],
+    "出于一些原因，杭电助手阳光长跑服务已经暂停，具体原因请见: \n" +
+    "https://salmon.hduhelp.com/_static/sunrunSunset.html \n\n" +
+    "若要查询阳光长跑情况，请登录\n" +
+    "http://hdu.sunnysport.org.cn",
   ],
 ]
 
