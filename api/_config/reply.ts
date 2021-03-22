@@ -70,6 +70,14 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '本群为杭电助手答疑群，杭电助手不负责易班以及上课啦的问题，我们无法提供相关解答。\n' +
       '请前往杭电易班答疑群（654618144）尝试获得解答。',
   ],
+  [
+    /(阳光长跑).*(查询|怎么|哪里|如何|了|体联|？|\?)/i,
+    [':sunrun','：阳光长跑'],
+    "出于一些原因，杭电助手阳光长跑服务已经暂停，具体原因请见: \n" +
+    "https://salmon.hduhelp.com/_static/sunrunSunset.html \n\n" +
+    "若要查询阳光长跑情况，请登录\n" +
+    "http://hdu.sunnysport.org.cn",
+  ],
 ]
 
 const testRules: GroupReplyRule[] = [
@@ -82,14 +90,6 @@ const testRules: GroupReplyRule[] = [
     /(这|那)个东西/,
     [':thisthat', '：这个那个'],
     "非管理员正则匹配 /(这|那)个东西/，管理员匹配[':thisthat', '：这个那个']",
-  ],
-  [
-    /(?=.*(阳光长跑))(?=.*(怎么|哪里|如何|了|体联))^.*$/i,
-    [':sunrun','：阳光长跑'],
-    "出于一些原因，杭电助手阳光长跑服务已经暂停，具体原因请见: \n" +
-    "https://salmon.hduhelp.com/_static/sunrunSunset.html \n\n" +
-    "若要查询阳光长跑情况，请登录\n" +
-    "http://hdu.sunnysport.org.cn",
   ],
 ]
 
