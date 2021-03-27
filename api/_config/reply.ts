@@ -35,7 +35,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
   [
     /自动(审核|通过)/i,
     [':aa', '：审', '：審'],
-    '假期自动审核严格按照规定执行，在另行通知前都会按规定自动审批。最常见无法自动批假的情况为2天内「当天出入（21:00前）」的请假外出有超时或未归情况。\n详细信息： https://kb.hduhelp.com/pages/viewpage.action?pageId=1343504#id-学生请假及出入校说明-自动审批',
+    '假期自动审核严格按照规定执行，在另行通知前都会按规定自动审批。最常见无法自动批假的情况为2天内「当天出入（20:00前）」的请假外出有超时或未归情况。\n详细信息： https://kb.hduhelp.com/pages/viewpage.action?pageId=1343504#id-学生请假及出入校说明-自动审批',
   ],
   [
     /考生号/i,
