@@ -53,6 +53,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '若需要重置统一认证登录的密码，请按 https://cas.hdu.edu.cn/cas/pwd 上的提示按步骤操作。\n' +
     '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。\n' +
     '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。\n' +
+    '后勤大厅一卡通热水圈存机的密码默认为学号后六位。\n' +
     '对于阳光长跑的密码，请常见 http://hdu.sunnysport.org.cn 。'
   ],
   // [
