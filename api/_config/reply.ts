@@ -51,10 +51,11 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     [':pwd', '：密碼', '：密码'],
     '杭电助手的系统本身没有密码，而使用杭电统一认证登录来验证你的身份。\n' +
     '若需要重置统一认证登录的密码，请按 https://cas.hdu.edu.cn/cas/pwd 上的提示按步骤操作。\n' +
+    '当发生学号变更（如升学情况），需要重新绑定微信学号时，请先在 https://one.hdu.edu.cn/tp_wp/wp/accountbind 解除老学号统一登录与微信的绑定，再在杭电助手微信公众号平台上进行绑定操作。' +
     '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。\n' +
     '对于图书馆相关系统密码，请参见 https://mp.weixin.qq.com/s/WnnORWvctemn5w688XnGUQ 。\n' +
     '后勤大厅一卡通热水圈存机的密码默认为学号后六位。\n' +
-    '对于阳光长跑的密码，请常见 http://hdu.sunnysport.org.cn 。'
+    '对于阳光长跑的密码，请常见 http://hdu.sunnysport.org.cn。'
   ],
   // [
   //   /(?=.*招新)/i,
