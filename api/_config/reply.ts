@@ -14,7 +14,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
   [
     /(?=.*(校外人员|外校人员))(?=.*(出校|入校|请假|进学校|出学校))^.*$/i, // Regex to match (non-admin)
     [':xw', '：xw'], // Manually trigger (admin-only)
-    '校外人员出入校需要向学校报备，毕业生可以联系辅导员，其他人员可以在保卫处报备\n' +
+    '校外人员出入校需要向学校报备，毕业生可以联系辅导员，其他人员可以在保卫处报备 \n\n' +
     '外来人员（车辆）进校申报表 http://baowei.hdu.edu.cn/2021/0113/c4283a132217/page.htm \n' +
     '校内学生请假相关流程及常见问题请参考此链接的FAQ，常见问题均可找到答案：\n\n https://kb.hduhelp.com/pages/viewpage.action?pageId=1343504' // Reply template.
   ],
