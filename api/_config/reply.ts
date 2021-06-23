@@ -9,6 +9,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
   [
     /(?=.*(请假|离校|出校))(?=.*(怎么|哪里|如何|不|没|有|啊|生成|码|能|该|出现))^.*$/i, // Regex to match (non-admin)
     [':qj', '：qj'], // Manually trigger (admin-only)
+    '如果遇到钉钉无法上传文件或者无法打开，可以在杭电助手微信公众号上打开菜单-更多-出入校申请。\n\n' +
     '请假相关流程及常见问题请参考此链接的FAQ，常见问题均可找到答案：\n\n https://kb.hduhelp.com/pages/viewpage.action?pageId=1343504' // Reply template.
   ],
   [
