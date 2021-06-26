@@ -30,9 +30,9 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '返校系统目前仅对iOS11及以上版本系统保证兼容，较低版本无法保证兼容性，请升级系统或尝试使用安卓设备' // Reply template.
   ],
   [
-    /(?=.*VPN)(?=.*(申请|怎么|连))^.*$/i,
+    /(?=.*(VPN|vpn))(?=.*(不|申请|怎么|连))^.*$/i,
     [':VPN', '：VPN'],
-    '本科生VPN账号申请: http://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n easyconnect使用方法具体可见群文件'
+    '本科生VPN账号申请: https://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n easyconnect使用方法具体可见群文件'
   ],
   [
     /(?=.*钉钉)(?=.*(组织|加入|手机|号码|修改|绑定|学生))(?=.*(不|没|再次|第二次|错|重新|失败|提示|显示|无法))^.*$/i,
@@ -66,7 +66,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '对于阳光长跑的密码，请常见 http://hdu.sunnysport.org.cn。'
   ],
   [
-    /(数字杭电的帐号出问题)/i,
+    /(?=.*(数字杭电|数字校园|智慧杭电|智慧校园))(?=.*(锁定|问题))/i,
     [':szhd', '：szhd'],
     '网络信息中心联系方式\n' +
     '对外服务时间：周一至周五上午 8:00-11:30，下午13:30-16:30；地点：3教601\n' +
