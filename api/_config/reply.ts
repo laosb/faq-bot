@@ -30,9 +30,14 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     '返校系统目前仅对iOS11及以上版本系统保证兼容，较低版本无法保证兼容性，请升级系统或尝试使用安卓设备' // Reply template.
   ],
   [
-    /(?=.*(VPN|vpn))(?=.*(不|申请|怎么|连))^.*$/i,
+    /(?=.*(VPN|vpn))(?=.*(不|申请|怎么|连|密码|手机号))^.*$/i,
     [':VPN', '：VPN'],
-    '本科生VPN账号申请: https://pwd.hdu.edu.cn/vpn.aspx \n 研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n 如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n easyconnect使用方法具体可见群文件'
+    '本科生VPN账号申请：https://pwd.hdu.edu.cn/vpn.aspx \n' +
+    '本科生VPN使用文档：https://static.hduhelp.com/vpn.pdf \n' +
+    '本科生VPN账号申请改手机号：https://i.hdu.edu.cn/tp_up/view?m=up#act=sys/uacm/profile&pt=w \n' +
+    '研究生VPN说明: http://nic.hdu.edu.cn/2018/1220/c515a90123/page.htm \n'+
+    '如果仅访问学术网站、图书馆网站，可以使用webVPN： https://pubvpn.hdu.edu.cn/ \n'+
+    'easyconnect使用方法具体可见群文件'
   ],
   [
     /(?=.*钉钉)(?=.*(组织|加入|手机|号码|修改|绑定|学生))(?=.*(不|没|再次|第二次|错|重新|失败|提示|显示|无法))^.*$/i,
@@ -58,6 +63,7 @@ const QaGroupReplyRules: GroupReplyRule[] = [
     /(?=.*密码)(?=.*(忘|重置|))/i,
     [':pwd', '：密碼', '：密码'],
     '杭电助手的系统本身没有密码，而使用杭电统一认证登录来验证你的身份。\n' +
+    '更改绑定手机号：https://i.hdu.edu.cn/tp_up/view?m=up#act=sys/uacm/profile&pt=w \n' +
     '若需要重置统一认证登录的密码，请按 https://cas.hdu.edu.cn/cas/pwd 上的提示按步骤操作。\n' +
     '当发生学号变更（如升学情况），需要重新绑定微信学号时，请先在 https://one.hdu.edu.cn/tp_wp/wp/accountbind 解除老学号统一登录与微信的绑定，再在杭电助手微信公众号平台上进行绑定操作。' +
     '若需要重置一卡通系统密码，请按一卡通系统上的提示重置，如不能重置请联系学校后勤部门处置。\n' +
