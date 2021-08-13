@@ -55,7 +55,7 @@ const verifyHduStaff: (
   comment: string
 ) => Promise<HduVerifyStatus> = async (staffId, comment) => {
   const res = await makeInternalReq(
-    'base',
+    'salmon_base',
     '/person/info',
     { foo: 'bar' },
     staffId,
@@ -63,15 +63,15 @@ const verifyHduStaff: (
   )
   if (!res) return { verified: false }
   console.log(
-    `staffId='${staffId}', expected name='${res.data.STAFFNAME}', submitted '${comment}'`
+    `staffId='${staffId}', expected name='${res.data.staffName}', submitted '${comment}'`
   )
-  if (res.data && comment.includes(res.data.STAFFNAME)) {
-    const name = res.data.STAFFNAME
+  if (res.data && comment.includes(res.data.staffName)) {
+    const name = res.data.staffName
     let prefix = ''
-    const dep = departmentShort[res.data.UNITCODE] || ''
+    const dep = departmentShort[res.data.unitCode] || ''
     if (dep) prefix += dep + '-'
-    if (res.data.STAFFTYPE === '1') prefix += staffId.slice(0, 2) + '-'
-    if (res.data.STAFFTYPE === '3') prefix += '研' + staffId.slice(0, 2) + '-'
+    if (res.data.staffType === '1') prefix += staffId.slice(0, 2) + '-'
+    if (res.data.staffType === '3') prefix += '研' + staffId.slice(0, 2) + '-'
     console.log('new member card:', prefix + name)
     return { verified: true, card: prefix + name }
   } else return { verified: false }
